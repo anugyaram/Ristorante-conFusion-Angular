@@ -45,6 +45,7 @@ export class DishdetailComponent implements OnInit {
     commentForm: FormGroup;
     comment: Comment;
     date: string;
+    errMess: string;
 
 
     formErrors={
@@ -81,7 +82,7 @@ export class DishdetailComponent implements OnInit {
           .subscribe((dish)=> {
               this.dish= dish;
               this.setPrevNext(this.dish.id);
-          });
+          }, errmess => this.errMess = <any>errmess);
     }
   
     setPrevNext(dishId: string){
